@@ -34,8 +34,8 @@
 ##users_groups
   |カラム名| 型 |オプション|
   |:---:|:---:|:---:|
-  |user_id|integer|not null|
-  |groups_id|integer|not null|
+  |user_id|references|foreign_key|
+  |groups_id|references|foreign_key|
  *belongs_to :user
  *belongs_to :group
 
