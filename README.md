@@ -1,24 +1,32 @@
-# README
+DATABASE creation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+messages
+| カラム名 | 型 | オプション |
+|:------:|:------:|:--------:|
+| body | text | not_null |
+| image | string | |
+|group_id | references | foreign_key |
+|user_id | references | foreign_key |
 
-Things you may want to cover:
 
-* Ruby version
+users
+| カラム名 | 型 | オプション |
+|:------:|:------:|-------:|
+| name | string | not null |
+| e_mail | string | unique |
+| group_id | references | foreign_key |
+| password | string | not null |
+*has_many :messages  
+*has_many :groups,through: :messages,source: :group
 
-* System dependencies
 
-* Configuration
+groups
+| カラム名 | 型 | オプション |
+|:------:|:------:|:------:|
+| name | string | not null |
+| user_id | resources | foreign_key |
+| group_id | resources | foreign_key |
+*has_many :messages  
+*has_many :users,through: :messages,source: :user
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
