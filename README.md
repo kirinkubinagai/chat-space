@@ -3,8 +3,8 @@
 ##messages
   | カラム名 | 型 | オプション |
   |:---:|:---:|:---:|
-  | body | text | |
-  | image | string | |
+  | body | text |index|
+  | image | string |index|
   |group_id | references | foreign_key |
   |user_id | references | foreign_key |
   *belongs_to :user
@@ -13,8 +13,8 @@
 ##users
   | カラム名 | 型 | オプション |
   |:---:|:---:|:---:|
-  | name | string | not null |
-  | e_mail | string | unique |
+  | name | string | not null,index|
+  | e_mail | string | unique,index|
   | group_id | references | foreign_key |
   | password | string | not null |
   *has_many :users_groups
@@ -30,3 +30,13 @@
   *has_many :users_groups
   *has_many :messages
   *has_many :users,through: :users_groups
+
+##users_groups
+  |カラム名| 型 |オプション|
+  |:---:|:---:|:---:|
+  |user_id|integer|not null|
+  |groups_id|integer|not null|
+ *belongs_to :user
+ *belongs_to :group
+
+
