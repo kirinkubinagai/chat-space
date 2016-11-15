@@ -1,0 +1,47 @@
+
+.chat
+  .chat-side
+    .chat-user.clearfix
+      %h5
+        %b
+          d
+      .chat-user__actions
+        %a.chat-user__action(href="")
+          %i.fa.fa-pencil-square-o
+        %a.chat-user__action(href="")
+          %i.fa.fa-cog
+    %ul.chat-groups
+      %li.chat-group
+        %a.chat-group__link(href="")
+          %p.chat-group__name
+            d
+          %p.chat-group__message
+            d
+  .chat-main
+    .chat-header.clearfix
+      .chat-header__left
+        %h2
+          d
+        %p.chat-header__users
+          Members:
+          %span.chat-header__users
+            d
+
+      .chat-header__right
+        %a.chat-header__edit-btn(href="")
+          Edit
+    .chat-body
+      %ul.chat-message
+        %li.chat-message__header
+          %p.chat-message__name
+            d
+          %p.chat-message__time
+            2016/11/14
+        %p.chat-message__body
+          d
+    .chat-footer
+      .form.new-message
+        %textarea(row="1" placeholder="type a message")
+        %label.chat-footer__file
+          %i.fa.fa-image
+        %input(type="submit" value="Send")
