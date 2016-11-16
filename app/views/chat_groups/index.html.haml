@@ -1,4 +1,3 @@
-
 .chat
   .chat-side
     .chat-user.clearfix
@@ -37,11 +36,13 @@
             d
           %p.chat-message__time
             2016/11/14
-        %p.chat-message__body
+        %li.chat-message__body
           d
     .chat-footer
       .form.new-message
-        %textarea(row="1" placeholder="type a message")
-        %label.chat-footer__file
-          %i.fa.fa-image
-        %input(type="submit" value="Send")
+        .chat-footer__text
+          %textarea(row="1" placeholder="type a message")
+
+          %label.chat-footer__file
+            %i.fa.fa-image
+          %input(type="submit" value="Send")

@@ -1,0 +1,23 @@
+.chat-groups{
+  margin:0;
+  padding:0;
+  color:#FFFFFF;
+  list-style: none;
+  .chat-group{
+    height:100%;
+    background-color:#2f3e51;
+    padding:20px;
+    .chat-group__link{
+      display: block;
+      color:#FFFFFF;
+      .chat-group__name{
+        display:inline-block;
+        font-size:15px;
+        margin-bottom:5px;
+      }
+      .chat-group__message{
+        font-size:11px;
+      }
+    }
+  }
+}
