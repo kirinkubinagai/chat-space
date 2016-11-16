@@ -64,7 +64,7 @@
     border-bottom:1px solid #eee;
     height:100px;
   }
-  &__left{
+  .chat-header__left{
     float:left;
     h2{
       padding-top:35px;
@@ -72,15 +72,15 @@
       color:#333333;
       font-weight: 400;
     }
-    &__users{
+    .chat-header__users{
       font-size:12px;
       color:#999999;
     }
   }
-  &__right{
+  .chat-header__right{
     float: right;
     margin: 28px 0;
-    &__edit-btn{
+    .chat-header__edit-btn{
       display: inline-block;
       padding:0 20px;
       line-height: 40px;
@@ -98,13 +98,13 @@
     height:80px;
     &__header{
       @include clearfix();
-      &__name{
+      .chat-message-name{
         display:inline-block;
         font-weight: 600;
         float:left;
         font-size:16px;
       }
-      &__time{
+      .chat-message__time{
         padding-top:3px;
         display:inline-block;
         float:left;
