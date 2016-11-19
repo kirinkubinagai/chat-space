@@ -11,11 +11,7 @@
       float: left;
       width: 50%;
     }
-    &:after {
-      clear: both;
-      content: "";
-      display: block;
-    }
+    @include clearfix;
   }
 
   .account-page__header {
@@ -139,3 +135,4 @@
     font-size: 13px;
   }
 }
+
