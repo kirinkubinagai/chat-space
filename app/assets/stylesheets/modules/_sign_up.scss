@@ -42,7 +42,7 @@
 
 .account-page__inner--right{
   float:left;
-  height:466px;
+  height:100%;
   width:429px;
   position:relative;
   .field-label{
@@ -60,20 +60,39 @@
     }
   }
 }
+
+#user_email{
+  width:425px;
+  height:44px;
+}
+#user_name{
+  width:425px;
+  height:44px;
+}
+#user_password{
+  width:425px;
+  height:44px;
+}
+#user_password_confirmation{
+  width:425px;
+  height:44px;
+}
+
 .actions{
+  height:70px;
+  width:100%;
+  display:block;
   .btn{
-    position:absolute;
-    bottom: 0;
     display: inline-block;
     height: 50px;
     line-height: 50px;
     width:202px;
     background-color:#38AEF0 ;
     border-radius:2px;
+    margin-top:20px;
     border:none;
     text-align: center;
     padding:0 30px;
-    margin-top:20px;
     color:white;
   }
 }
