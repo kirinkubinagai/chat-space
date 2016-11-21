@@ -26,7 +26,7 @@
   |カラム名|型|オプション|  
   |:---:|:---:|:---:|  
   |name|string|not null|  
-  |user_id|resources|foreign_key|  
+  |user_id|references|foreign_key|  
   * has_many :users_groups  
   * has_many :messages  
   * has_many :users,through: :users_groups  
