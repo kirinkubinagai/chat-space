@@ -22,7 +22,7 @@
   * has_many :groups,through: :users_groups  
 
 
-## chat_groups
+## groups
   |カラム名|型|オプション|  
   |:---:|:---:|:---:|  
   |name|string|not null|  

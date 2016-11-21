@@ -8,14 +8,15 @@ class ChatGroupsController < ApplicationController
   end
 
   def create
-    ChatGroup.create(create_params)
-    redirect_to action: :index
+    @chat_group=ChatGroup.new(create_params)
+    if @chat_group.save
+      redirect_to action: :index
+    end
+      render action: :new
   end
 
   def edit
-  end
-
-  def show
+    @chat_groups=ChatGroup.new
   end
 
   private
