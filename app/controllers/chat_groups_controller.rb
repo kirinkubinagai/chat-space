@@ -15,10 +15,6 @@ class ChatGroupsController < ApplicationController
       render action: :new
   end
 
-  def edit
-    @chat_groups=ChatGroup.new
-  end
-
   private
   def create_params
      params.require(:chat_group).permit({user_id:[]}, :name)
