@@ -1,6 +1,6 @@
 # DATABASE_CREATION
 
-## messages
+##  messages
   |カラム名|型|オプション|  
   |:---:|:---:|:---:|  
   |body|text|index|  
@@ -22,7 +22,7 @@
   * has_many :groups,through: :users_groups  
 
 
-## groups
+## chat_groups
   |カラム名|型|オプション|  
   |:---:|:---:|:---:|  
   |name|string|not null|  
