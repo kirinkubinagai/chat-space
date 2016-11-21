@@ -42,6 +42,7 @@
 
   .chat-group-form__field {
     margin-top: 30px;
+    @include clearfix;
 
     .chat-group-form__field--left {
       float: left;
@@ -52,8 +53,15 @@
 
     .chat-group-form__field--right {
       float: right;
-      position:relative;
       width: 628.59px;
+      height:50px;
+      border-bottom:1px solid #ddd;
+      &__submit{
+        border-style: none;
+        float: right;
+        width: 628.59px;
+        height:50px;
+      }
     }
 
     .chat-group-form__label {

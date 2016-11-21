@@ -4,11 +4,12 @@ class ChatGroupsController < ApplicationController
   end
 
   def new
-    @users=User.all
+    @chat_group=ChatGroup.new
   end
 
   def create
-    Chat_group.create(create_params)
+    ChatGroup.create(create_params)
+    redirect_to action: :index
   end
 
   def edit
@@ -19,7 +20,7 @@ class ChatGroupsController < ApplicationController
 
   private
   def create_params
-     params.require(:user).permit(:id => []).merge(name: params[:name])
+     params.require(:chat_group).permit({user_id:[]}, :name)
   end
 
 end
