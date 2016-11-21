@@ -4,10 +4,11 @@ class ChatGroupsController < ApplicationController
   end
 
   def new
+    @users=User.all
   end
 
   def create
-    Chat_group.create(name: create_params[:name],user_id: create_params[:user_id])
+    Chat_group.create(create_params)
   end
 
   def edit
@@ -18,7 +19,7 @@ class ChatGroupsController < ApplicationController
 
   private
   def create_params
-     params.permit(:name,:user_id)
+     params.require(:user).permit(:id => []).merge(name: params[:name])
   end
 
 end

@@ -21,10 +21,17 @@
       .chat-group-form__field--right
         #chat-group-users
           #chat-group-user-22.chat-group-user
-            %p.chat-group-user__name seo_kyohei
+            %p.chat-group-user__name
+              = current_user.name
             %input{:name => "chat_group[user_ids][]", :type => "hidden", :value => "22"}/
 
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
         %input.chat-group-form__action-btn{"data-disable-with" => "Save", :name => "commit", :type => "submit", :value => "Save"}/
+
+/ -collection_check_boxes(:user,)do |b|
+/   =b.label{b.check_box}
+
+-@users.each do|user|
+  =user.name
