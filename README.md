@@ -1,6 +1,6 @@
 # DATABASE_CREATION
 
-##  messages
+## messages
   |カラム名|型|オプション|  
   |:---:|:---:|:---:|  
   |body|text|index|  
