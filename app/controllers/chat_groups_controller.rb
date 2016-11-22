@@ -11,8 +11,22 @@ class ChatGroupsController < ApplicationController
     @chat_group=ChatGroup.new(create_params)
     if @chat_group.save
       redirect_to action: :index
-    end
+    else
       render action: :new
+    end
+  end
+
+  def edit
+    @chat_group=ChatGroup.find(params[:id])
+  end
+
+  def update
+    chat_group=ChatGroup.find(params[:id])
+    if @group.update(create_params)
+      redirect_to action: :index
+    else
+      render action: :new
+    end
   end
 
   private
