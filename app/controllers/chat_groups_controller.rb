@@ -1,5 +1,6 @@
 class ChatGroupsController < ApplicationController
-
+  
+  before_action :group,only: [:edit,:update]
   def index
   end
 
@@ -17,11 +18,9 @@ class ChatGroupsController < ApplicationController
   end
 
   def edit
-    @chat_group=ChatGroup.find(params[:id])
   end
 
   def update
-    @chat_group=ChatGroup.find(params[:id])
     if @chat_group.update(create_params)
       redirect_to action: :index
     else
@@ -34,4 +33,7 @@ class ChatGroupsController < ApplicationController
      params.require(:chat_group).permit({user_id:[]}, :name)
   end
 
+  def group
+    @chat_group=ChatGroup.find(params[:id])
+  end
 end
