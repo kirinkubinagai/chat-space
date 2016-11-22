@@ -1,9 +1,9 @@
 class ChatGroupsController < ApplicationController
-
+  
   before_action :group,only: [:edit,:update]
   def index
-    @chat_groups=ChatGroup.all
-    
+    @chat_groups= current_user.chat_groups
+    @messages=current_user.messages
   end
 
   def new
@@ -32,7 +32,7 @@ class ChatGroupsController < ApplicationController
 
   private
   def create_params
-     params.require(:chat_group).permit({user_id:[]}, :name)
+     params.require(:chat_group).permit({user_ids:[]}, :name)
   end
 
   def group

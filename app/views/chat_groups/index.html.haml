@@ -13,11 +13,8 @@
       %li.chat-group
         %a.chat-group__link(href = "")
           - @chat_groups.each do |chat_group|
-            -if current_user.chat_groups.present?
-              .chat-group__name
-                =current_user.chat_group.name
-              .chat-group__message
-                =current_user.chat_group.body.first
-            -else
-              .chat-group__name
-              .chat-group__message
+            .chat-group__name
+              =chat_group.name
+            .chat-group__message
+              - @messages.each do |message|
+                =chat_group.message.body
