@@ -1,7 +1,9 @@
 class ChatGroupsController < ApplicationController
-  
+
   before_action :group,only: [:edit,:update]
   def index
+    @chat_groups=ChatGroup.all
+    
   end
 
   def new

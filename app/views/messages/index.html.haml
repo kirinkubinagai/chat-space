@@ -1,0 +1,52 @@
+.chat
+  .chat-side
+    .chat-user.clearfix
+      %h5
+        %b
+          =current_user.name
+      .chat-user__actions
+        %a.chat-user__action(href = "chat_groups/new")
+          %i.fa.fa-pencil-square-o
+        %a.chat-user__action(href = "users/edit")
+          %i.fa.fa-cog
+    %ul.chat-groups
+      %li.chat-group
+        %a.chat-group__link(href = "")
+        - @chat_groups.each do |chat_group|
+          -if current_user.chat_group.presence?
+            .chat-group__name
+              =current_user.chat_group.name
+            .chat-group__message
+              =current_user.chat_group.body.first
+          -else
+            .chat-group__name
+            .chat-group__message
+  .chat-main
+    .chat-header.clearfix
+      .chat-header__left
+        %h2
+          test_group_name
+        %p.chat-header__users
+          Members:
+          %span.chat-header__users
+            test_name
+      .chat-header__right
+        %a.chat-header__edit-btn(href = "")
+          Edit
+    .chat-body
+      %ul.chat-message
+        %li.chat-message__header
+          %p.chat-message__name
+            test_name
+          %p.chat-message__time
+            2016/11/16
+        %li.chat-message__body
+          test
+    .chat-footer
+      .form.new-message
+        .chat-footer-text
+          %textarea(row="1" placeholder="type a message")
+
+          %label.chat-footer-file
+            %i.fa.fa-image
+          %input(type="submit" value="Send")
