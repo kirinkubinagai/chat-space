@@ -21,11 +21,11 @@ class ChatGroupsController < ApplicationController
   end
 
   def update
-    chat_group=ChatGroup.find(params[:id])
-    if @group.update(create_params)
+    @chat_group=ChatGroup.find(params[:id])
+    if @chat_group.update(create_params)
       redirect_to action: :index
     else
-      render action: :new
+      render action: :edit
     end
   end
 
