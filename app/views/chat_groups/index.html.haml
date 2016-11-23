@@ -11,10 +11,13 @@
           %i.fa.fa-cog
     %ul.chat-groups
       %li.chat-group
-        %a.chat-group__link(href = "")
-          - @chat_groups.each do |chat_group|
-            .chat-group__name
+        - @chat_groups.each do |chat_group|
+          .chat-group__link
+            %a.chat-group__name(href = "/chat_groups/#{chat_group.id}/messages/new")
               =chat_group.name
             .chat-group__message
-              - @messages.each do |message|
-                =chat_group.message.body
+              - if chat_group.messages.present?
+                =chat_group.messages.first.body
+              - else
+                %p
+                  まだメッセージはありません。

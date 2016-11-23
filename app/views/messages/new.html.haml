@@ -1,0 +1,54 @@
+.chat
+  .chat-side
+    .chat-user.clearfix
+      %h5
+        %b
+          =current_user.name
+      .chat-user__actions
+        %a.chat-user__action(href = "/chat_groups/new")
+          %i.fa.fa-pencil-square-o
+        %a.chat-user__action(href = "/users/edit")
+          %i.fa.fa-cog
+    %ul.chat-groups
+      %li.chat-group
+        - @chat_groups.each do |chat_group|
+          .chat-group__link
+            %a.chat-group__name(href = "/chat_groups/#{chat_group.id}/messages/new")
+              =chat_group.name
+            .chat-group__message
+              - if chat_group.messages.present?
+                = chat_group.messages.first.body
+              - else
+                %p
+                  まだメッセージはありません。
+  .chat-main
+    .chat-header.clearfix
+      .chat-header__left
+        %h2
+          =@chat_group.name
+        %p.chat-header__users
+          Members:
+          %span.chat-header__users
+            - @users.each do |user|
+              = user.name
+      .chat-header__right
+        %a.chat-header__edit-btn(href = "")
+          Edit
+    .chat-body
+      - @messages.each do |message|
+        %ul.chat-message
+          %li.chat-message__header
+            %p.chat-message__name
+              = message.user.name
+            %p.chat-message__time
+              = message.created_at
+          %li.chat-message__body
+            = message.body
+    .chat-footer
+      .form.new-message
+        .chat-footer-text
+          =form_for [@chat_group,@message],class:"chat_footer-text" do |f|
+            =f.text_area :body,placeholder: "type a message",row: "1"
+            =f.label class:"chat-footer-file" do
+              %i.fa.fa-image
+            =f.submit value: "Send"

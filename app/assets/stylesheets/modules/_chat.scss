@@ -142,14 +142,12 @@
         width:calc(100% - 195px);
       }
     }
-    .chat-footer-file{
-      i{
+      .fa.fa-image{
         position:absolute;
         font-size:16px;
         top:35px;
         right:180px;
         }
-    }
     input{
       margin-right:40px;
       display:inline-block;
@@ -163,4 +161,15 @@
   }
 }
 
+.chat-group__message{
+  font-size: 11px;
+}
+.chat-group__link{
+  height:46px;
+  padding:20px;
+}
 
+.chat-group__name{
+  font-size:15px;
+  margin-bottom:5px;
+}
