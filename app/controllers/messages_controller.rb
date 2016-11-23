@@ -1,4 +1,3 @@
-
 class MessagesController < ApplicationController
 
   def new
@@ -10,16 +9,17 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message=Message.new(create_params)
-      if @message.save
-        redirect_to action: :new
-      else
-        render action: :new
-      end
+    @message = Message.new(message_params)
+    if @message.save
+      redirect_to action: :new
+    else
+      redirect_to action: :new
+      flash[:alert] = "入力してください"
+    end
   end
 
 private
-  def create_params
+  def message_params
     params.require(:message).permit(:body).merge(user_id: current_user.id,chat_group_id: params[:chat_group_id])
   end
 end
