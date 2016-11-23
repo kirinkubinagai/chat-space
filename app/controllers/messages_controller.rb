@@ -11,11 +11,12 @@ class MessagesController < ApplicationController
 
   def create
     @message=Message.new(create_params)
-      if @message.save
-        redirect_to action: :new
-      else
-        render action: :new
-      end
+    if @message.save
+      redirect_to action: :new
+    else
+      redirect_to action: :new
+      flash[:alert]="入力してください"
+    end
   end
 
 private
