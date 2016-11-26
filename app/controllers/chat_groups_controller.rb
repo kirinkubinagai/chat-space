@@ -15,8 +15,8 @@ class ChatGroupsController < ApplicationController
       redirect_to action: :index
       flash[:notice] = "グループを作成しました。"
     else
-      render action: :new
       flash.now[:alert] = "グループ名を入力してください"
+      render action: :new
     end
   end
 

@@ -2,9 +2,7 @@ class MessagesController < ApplicationController
 
   def new
     @chat_groups = current_user.chat_groups
-    @users = @chat_groups.find(params[:chat_group_id]).users
     @chat_group = ChatGroup.find(params[:chat_group_id])
-    @messages = @chat_group.messages.order("created_at DESC")
     @message = Message.new
   end
 
@@ -16,6 +14,18 @@ class MessagesController < ApplicationController
       redirect_to action: :new
       flash[:alert] = "入力してください"
     end
+  end
+
+
+  def login_admin(admin)
+    @request.env["devise.mapping"] = Devise.mappings[:admin]
+    sign_in admin
+  end
+
+  def login_user(user)
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    user.confirm!
+    sign_in user
   end
 
 private
