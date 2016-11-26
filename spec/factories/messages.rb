@@ -1,10 +1,9 @@
 FactoryGirl.define do
 
   factory :message do
-    body                  "aaaa"
-    chat_group_id         "20"
-    user_id               "20"
-    image                 "aaaa"
+    body                  {Faker::Lorem.sentence}
+    chat_group_id         "1"
+    user_id               "1"
+    image                 {Faker::Pokemon.name}
   end
-
 end
