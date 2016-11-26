@@ -1,4 +1,3 @@
-
 .chat
   .chat-side
     .chat-user.clearfix
@@ -26,17 +25,17 @@
     .chat-header.clearfix
       .chat-header__left
         %h2
-          =@chat_group.name
+          = @chat_group.name
         %p.chat-header__users
           Members:
           %span.chat-header__users
-            - @users.each do |user|
+            - @chat_group.users.each do |user|
               = user.name
       .chat-header__right
         %a.chat-header__edit-btn(href = "")
           Edit
     .chat-body
-      - @messages.each do |message|
+      - @chat_group.messages.each do |message|
         %ul.chat-message
           %li.chat-message__header
             %p.chat-message__name

@@ -14,10 +14,8 @@ ActiveRecord::Schema.define(version: 20161122055523) do
 
   create_table "chat_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
-    t.integer  "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_chat_groups_on_users_id", using: :btree
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -58,7 +56,6 @@ ActiveRecord::Schema.define(version: 20161122055523) do
     t.index ["user_id"], name: "index_users_groups_on_user_id", using: :btree
   end
 
-  add_foreign_key "chat_groups", "users", column: "users_id"
   add_foreign_key "messages", "chat_groups"
   add_foreign_key "messages", "users"
   add_foreign_key "users_groups", "chat_groups"
