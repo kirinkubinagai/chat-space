@@ -9,23 +9,15 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to action: :new
+      respond_to do |format|
+        format.html { redirect_to action: :new } and return# この中はHTMLリクエストの場合に呼ばれる
+        format.json { render json: @message } and return# この中はJSONリクエストの場合に呼ばれる
+            redirect_to action: :new
+      end
     else
       redirect_to action: :new
       flash[:alert] = "入力してください"
     end
-  end
-
-
-  def login_admin(admin)
-    @request.env["devise.mapping"] = Devise.mappings[:admin]
-    sign_in admin
-  end
-
-  def login_user(user)
-    @request.env["devise.mapping"] = Devise.mappings[:user]
-    user.confirm!
-    sign_in user
   end
 
 private
