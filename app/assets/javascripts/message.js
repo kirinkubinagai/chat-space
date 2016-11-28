@@ -30,7 +30,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-      var html = buildHTML(data);
+      buildHTML(data);
       $("#message_body").val("")
     })
     .fail(function() {
