@@ -28,7 +28,6 @@ describe MessagesController, type: :controller do
     it "save not success when body is nil" do
       message = build(:message,body: nil)
       message.valid?
-      binding.pry
       post :create, message:attributes_for(:message),chat_group_id: chat_group.id
       expect(message.errors[:body].any?).to eq(true)
     end

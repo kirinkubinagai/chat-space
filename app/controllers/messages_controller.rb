@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def new
-    @chat_groups = current_user.chat_groups
+    @chat_groups = current_user.chat_groups.order("created_at DESC")
     @chat_group = ChatGroup.find(params[:chat_group_id])
     @message = Message.new
   end
@@ -10,9 +10,10 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       respond_to do |format|
-        format.html { redirect_to action: :new } and return# この中はHTMLリクエストの場合に呼ばれる
-        format.json { render json: @message } and return# この中はJSONリクエストの場合に呼ばれる
-            redirect_to action: :new
+        format.html { redirect_to action: :new } # この中はHTMLリクエストの場合に呼ばれる
+        format.json {
+          render json: { id: @message.id, chat_group_id: @message.chat_group_id, body: @message.body,created_at: @message.created_at, user_id: @message.user_id, image: @message.image, name: current_user.name }
+        }# この中はJSONリクエストの場合に呼ばれる
       end
     else
       redirect_to action: :new
