@@ -7,12 +7,21 @@ class ChatGroupsController < ApplicationController
 
   def new
     @chat_group = ChatGroup.new
+    users = User.all
   end
 
   def create
     @chat_group = ChatGroup.new(chat_group_params)
+    @users = User.all
     if @chat_group.save
-      redirect_to action: :index
+      respond_to do |format|
+        format.html{ redirect_to controller: :chat_groups,action: :index }
+        format.json{
+          render json{
+            @users
+          }
+        }
+      end
       flash[:notice] = "グループを作成しました。"
     else
       flash.now[:alert] = "グループ名を入力してください"

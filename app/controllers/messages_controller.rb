@@ -13,8 +13,8 @@ class MessagesController < ApplicationController
         format.html { redirect_to action: :new } # この中はHTMLリクエストの場合に呼ばれる
         format.json {
           render json: {
-           id: @message.id, chat_group_id: @message.chat_group_id, body: @message.body,created_at: @message.created_at, user_id: @message.user_id, image: @message.image, name: current_user.name 
-         }
+           id: @message.id, chat_group_id: @message.chat_group_id, body: @message.body,created_at: @message.created_at, user_id: @message.user_id, image: @message.image, name: current_user.name
+          }
         }# この中はJSONリクエストの場合に呼ばれる
       end
     else

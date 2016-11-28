@@ -4,7 +4,6 @@
   margin: 60px auto;
   padding: 40px;
   background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 5px;
 
 
@@ -54,8 +53,7 @@
     .chat-group-form__field--right {
       float: right;
       width: 628.59px;
-      height:50px;
-      border-bottom:1px solid #ddd;
+      height:40px;
       &__submit{
         border-style: none;
         float: right;
@@ -86,8 +84,8 @@
     padding: 0 15px;
     line-height: 40px;
     font-size: 14px;
+    height: 40px;
     border-bottom: 1px solid #ddd;
-    margin-bottom:36px;
     font-weight: 300;
 
     .chat-group-user__name{
