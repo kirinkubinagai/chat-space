@@ -93,7 +93,8 @@
 .chat-body{
   position:relative;
   padding:46px 40px 0;
-  height:calc(100% - 190px);
+  height:calc(100% - 146px);
+  overflow: scroll;
   .chat-message{
     height:80px;
     &__header{
