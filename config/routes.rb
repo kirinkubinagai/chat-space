@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :chat_groups do
     resources :messages, only: [:new,:create]
   end
+  resources :users do
+    get :search,on: :collection
+  end
 end

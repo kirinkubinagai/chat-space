@@ -11,12 +11,14 @@
         = f.label :チャットメンバーを入力, class: "chat-group-form__label"
       .chat-group-form__field--right
         %input#user-search-field.chat-group-form__input{placeholder: "追加したいメンバーを入力してください。" }
+          #chat-group-users
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right
-        #chat-group-users
+        #chat-group-users-added
           %div(class= "chat-group-user clearfix" id= "chat-group-user-#{current_user.id}")
+            = current_user.name
     .chat-group-form__field.clearfix
       .chat-group-form__field--right__submit
         = f.submit "Save", class: "chat-group-form__action-btn"
