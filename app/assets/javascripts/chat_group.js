@@ -1,5 +1,4 @@
 $(function(e){
-  var new_user_data = []
   function buildHTML(data) {
     var exit_user_data = $("#chat-group-users").children();
     exit_user_data.remove();
@@ -23,19 +22,17 @@ $(function(e){
     var id = $(user_data).attr("data_user_id")
 
     html =
-      '<div class = "chat-group-user clearfix" id = "' + id + '">' +
+      '<div class = "chat-group-user clearfix" id = "' +id + '">' +
         name +
         '<a class= "user_delete" >' +
           '削除' +
         '</a>' +
+        '<input type = "hidden" name = "chat_group[user_ids][]" value="' +id + '">' +
       '</div>'
     $("#chat-group-users-added").append(html)
     var added_user = $(this).parent()
     added_user.remove();
     //追加を押した時に下に名前を表示、追加が押された時にそのリストも消す
-
-
-
 
     $(".user_delete").on ("click",function(){
       var delete_name = $(this).parent()
