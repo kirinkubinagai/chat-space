@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
       end
     else
       redirect_to action: :new
-      flash[:alert] = "入力してください"
+      flash.now[:alert] = "入力してください"
     end
   end
 
