@@ -1,8 +1,6 @@
 $(function() {
   function buildHTML(data) {
     var chat =
-    console.log(data.name)
-      data.filter
       '<ul class="chat-message">' +
         '<li class = "chat-message__header">' +
           '<p class = "chat-message__name">' +
@@ -31,8 +29,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-      html = buildHTML(data);
-      $('.chat-body').append(html);
+      $('.chat-body').append(buildHTML(data));
       $("#message_body").val("");
     })
     .fail(function() {

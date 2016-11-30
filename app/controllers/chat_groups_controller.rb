@@ -2,7 +2,7 @@ class ChatGroupsController < ApplicationController
 
   before_action :group,only: [:edit,:update]
   def index
-    @chat_groups = current_user.chat_groups
+    @chat_groups = current_user.chat_groups.order("created_at DESC")
   end
 
   def new
