@@ -1,80 +1,80 @@
 .chat{
-  min-width:980px;
-  height:100%;
+  min-width: 980px;
+  height: 100%;
 }
 .chat-side{
   float:left;
-  width:300px;
-  height:100%;
-  background-color:#2f3e51;
+  width: 300px;
+  height: 100%;
+  background-color: #2f3e51;
   .chat-user{
-    height:100px;
-    background-color:#253141;
-    color:#FFFFFF;
+    height: 100px;
+    background-color: #253141;
+    color: #FFFFFF;
     h5{
-      font-size:16px;
-      line-height:60px;
-      margin:20px 20px;
+      font-size: 16px;
+      line-height: 60px;
+      margin: 20px 20px;
       float:left;
     }
     &__actions{
-      float:right;
-      margin:20px;
+      float: right;
+      margin: 20px;
       .chat-user__action{
-        display:inline-block;
-        margin:15px 0 15px 3px;
-        line-height:28px;
-        color:#FFF;
+        display: inline-block;
+        margin: 15px 0 15px 3px;
+        line-height: 28px;
+        color: #FFF;
         font-size: 20px;
       }
     }
   }
 }
 .chat-groups{
-  margin:0;
-  padding:0;
-  color:#FFFFFF;
+  margin: 0;
+  padding: 0;
+  color: #FFFFFF;
   list-style: none;
   .chat-group{
-    height:100%;
-    background-color:#2f3e51;
-    padding:20px;
+    height: 100%;
+    background-color: #2f3e51;
+    padding: 20px;
     &__link{
       display: block;
-      color:#FFF;
+      color: #FFF;
       &__name{
-        display:inline-block;
-        font-size:15px;
-        margin-bottom:5px;
+        display: inline-block;
+        font-size: 15px;
+        margin-bottom: 5px;
       }
       &__message{
-        font-size:11px;
+        font-size: 11px;
       }
     }
   }
 }
 .chat-main{
-  float:left;
-  position:relative;
-  width:calc(100% - 300px);
+  float: left;
+  position: relative;
+  width: calc(100% - 300px);
   height:100%;
   .chat-header{
-    padding:0 40px;
-    background-color:#fff;
-    border-bottom:1px solid #eee;
-    height:100px;
+    padding: 0 40px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    height: 100px;
   }
   .chat-header__left{
     float:left;
     h2{
-      padding-top:35px;
-      font-size:20px;
-      color:#333;
+      padding-top: 35px;
+      font-size: 20px;
+      color: #333;
       font-weight: 400;
     }
     .chat-header__users{
-      font-size:12px;
-      color:#999;
+      font-size: 12px;
+      color: #999;
     }
   }
   .chat-header__right{
@@ -82,7 +82,7 @@
     margin: 28px 0;
     .chat-header__edit-btn{
       display: inline-block;
-      padding:0 20px;
+      padding: 0 20px;
       line-height: 40px;
       color: #38aef0;
       font-size: 14px;
@@ -92,90 +92,90 @@
 }
 .chat-body{
   position:relative;
-  padding:46px 40px 0;
-  height:calc(100% - 146px);
+  padding: 46px 40px 0;
+  height: calc(100% - 146px);
   overflow: scroll;
   .chat-message{
-    height:80px;
+    height: 80px;
     &__header{
       @include clearfix();
       .chat-message__name{
-        display:inline-block;
+        display: inline-block;
         font-weight: 600;
-        float:left;
-        font-size:16px;
+        float: left;
+        font-size: 16px;
       }
       .chat-message__time{
-        padding-top:3px;
-        display:inline-block;
-        float:left;
-        margin-bottom:10px;
-        margin-left:10px;
-        font-size:12px;
-        color:#999;
+        padding-top: 3px;
+        display: inline-block;
+        float: left;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        font-size: 12px;
+        color: #999;
       }
     }
     &__body{
-      font-size:14px;
+      font-size: 14px;
     }
   }
 }
 .chat-footer{
-  position:absolute;
-  bottom:0px;
-  width:100%;
-  background-color:#ddd;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background-color: #ddd;
   .form{
-    display:block;
-    width:100%;
-    height:90px;
+    display: block;
+    width: 100%;
+    height: 90px;
     .chat-footer-text {
-      margin-left:40px;
-      padding-top:20px;
+      margin-left: 40px;
+      padding-top: 20px;
       textarea{
-        float:left;
-        border:none;
-        height:30px;
-        font-size:16px;
-        text-align:left;
-        resize:none;
+        float: left;
+        border: none;
+        height: 30px;
+        font-size: 16px;
+        text-align: left;
+        resize: none;
         padding: 10px 15px;
-        width:calc(100% - 195px);
+        width: calc(100% - 195px);
       }
     }
       .fa.fa-image{
-        position:absolute;
-        font-size:16px;
-        top:35px;
-        right:180px;
+        position: absolute;
+        font-size: 16px;
+        top: 35px;
+        right: 180px;
         }
     input{
-      margin-right:40px;
-      display:inline-block;
-      width:100px;
-      line-height:50px;
-      background-color:#38AEF0;
-      border:none;
-      float:right;
-      color:#fff;
+      margin-right: 40px;
+      display: inline-block;
+      width: 100px;
+      line-height: 50px;
+      background-color: #38AEF0;
+      border: none;
+      float: right;
+      color: #fff;
     }
   }
 }
 
 a{
-  text-decoration:none;
-  color:#fff;
+  text-decoration: none;
+  color: #fff;
 }
 
 .chat-group__message{
   font-size: 11px;
 }
 .chat-group__link{
-  height:46px;
-  padding:20px;
+  height: 46px;
+  padding: 20px;
 }
 
 .chat-group__name{
-  font-size:15px;
-  margin-bottom:5px;
+  font-size: 15px;
+  margin-bottom: 5px;
 }

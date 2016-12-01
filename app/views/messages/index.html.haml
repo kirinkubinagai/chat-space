@@ -8,7 +8,7 @@
         %a.chat-user__action(href = "")
         =link_to "/chat_groups/new",class: "chat-user__action" do
           %i.fa.fa-pencil-square-o
-        %a.chat-user__action(href = "/users/edit")
+        = link_to "/users/edit",class: "chat-user__action" do
           %i.fa.fa-cog
     %ul.chat-groups
       %li.chat-group
