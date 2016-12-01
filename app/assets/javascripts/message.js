@@ -29,9 +29,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-       html = buildHTML(data);
-      $('.chat-body').append(html);
-      console.log($('.chat-body'));
+      $('.chat-body').append(buildHTML(data));
       $("#message_body").val("");
     })
     .fail(function() {

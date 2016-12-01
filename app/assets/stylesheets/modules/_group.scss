@@ -4,9 +4,8 @@
   margin: 60px auto;
   padding: 40px;
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-
+  border:solid 1px #ddd;
+  border-radius: 5px ;
 
   h1 {
     letter-spacing: 2px;
@@ -53,19 +52,18 @@
 
     .chat-group-form__field--right {
       float: right;
+      display: block;
       width: 628.59px;
-      height:50px;
-      border-bottom:1px solid #ddd;
       &__submit{
+        clear: both;
         border-style: none;
         float: right;
-        width: 628.59px;
+        width:100%;
         height:50px;
       }
     }
 
     .chat-group-form__label {
-      margin-bottom:31px;
       display: block;
       line-height: 50px;
       font-weight: bold;
@@ -77,20 +75,20 @@
       width: 100%;
       line-height: 30px;
       padding: 10px 15px;
-      margin-bottom: 27px;
-      box-sizing: border-box;
+      box-sizing:border-box;
     }
   }
 
   .chat-group-user {
     padding: 0 15px;
-    line-height: 40px;
+    line-height: 50px;
     font-size: 14px;
+    height: 50px;
     border-bottom: 1px solid #ddd;
-    margin-bottom:36px;
     font-weight: 300;
+    clear:both;
 
-    .chat-group-user__name{
+    .chat-group-user__name {
       display:inline-block;
       height:50px;
       line-height: 50px;
@@ -119,4 +117,16 @@
     background-color: #38aef0;
     border: 0;
   }
+}
+
+.user_add {
+  float: right;
+  color: #38aef0;
+  cursor: pointer;
+}
+
+.user_delete {
+  float: right;
+  color: #38aef0;
+  cursor: pointer;
 }

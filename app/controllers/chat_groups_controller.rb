@@ -2,7 +2,7 @@ class ChatGroupsController < ApplicationController
 
   before_action :group,only: [:edit,:update]
   def index
-    @chat_groups = current_user.chat_groups
+    @chat_groups = current_user.chat_groups.order("created_at DESC")
   end
 
   def new
@@ -11,8 +11,9 @@ class ChatGroupsController < ApplicationController
 
   def create
     @chat_group = ChatGroup.new(chat_group_params)
+    @users = User.all
     if @chat_group.save
-      redirect_to action: :index
+      redirect_to controller: :chat_groups,action: :index
       flash[:notice] = "グループを作成しました。"
     else
       flash.now[:alert] = "グループ名を入力してください"
@@ -21,6 +22,7 @@ class ChatGroupsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
