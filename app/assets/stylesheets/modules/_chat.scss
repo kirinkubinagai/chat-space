@@ -31,6 +31,8 @@
   }
 }
 .chat-groups{
+  overflow: scroll;
+  height: calc(100% - 100px);
   margin: 0;
   padding: 0;
   color: #FFFFFF;
@@ -172,7 +174,7 @@ a{
 }
 .chat-group__link{
   height: 46px;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .chat-group__name{
