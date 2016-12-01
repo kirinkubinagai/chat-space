@@ -31,6 +31,7 @@ $(function() {
     .done(function(data) {
       $('.chat-body').append(buildHTML(data));
       $("#message_body").val("");
+      $(".chat_submit").prop("disabled",false);
     })
     .fail(function() {
       alert('error');
