@@ -58,3 +58,4 @@ gem "pry-rails"
 gem 'jquery-turbolinks'
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
+gem "fog"
