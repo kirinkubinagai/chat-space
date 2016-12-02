@@ -24,13 +24,13 @@ class MessagesController < ApplicationController
         }# この中はJSONリクエストの場合に呼ばれる
       end
     else
-      redirect_to action: :new
+      redirect_to :new
       flash.now[:alert] = "入力してください"
     end
   end
 
 private
   def message_params
-    params.require(:message).permit(:body).merge(user_id: current_user.id,chat_group_id: params[:chat_group_id])
+    params.require(:message).permit(:body,:image).merge(user_id: current_user.id, chat_group_id: params[:chat_group_id])
   end
 end

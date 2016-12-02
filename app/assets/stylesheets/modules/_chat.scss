@@ -31,6 +31,8 @@
   }
 }
 .chat-groups{
+  overflow: scroll;
+  height: calc(100% - 100px);
   margin: 0;
   padding: 0;
   color: #FFFFFF;
@@ -93,10 +95,9 @@
 .chat-body{
   position:relative;
   padding: 46px 40px 0;
-  height: calc(100% - 146px);
+  height: calc(100% - 236px);
   overflow: scroll;
   .chat-message{
-    height: 80px;
     &__header{
       @include clearfix();
       .chat-message__name{
@@ -117,13 +118,11 @@
     }
     &__body{
       font-size: 14px;
+      margin-bottom: 29px;
     }
   }
 }
 .chat-footer{
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
   background-color: #ddd;
   .form{
     display: block;
@@ -133,6 +132,7 @@
       margin-left: 40px;
       padding-top: 20px;
       textarea{
+        position:relative;
         float: left;
         border: none;
         height: 30px;
@@ -144,12 +144,14 @@
       }
     }
       .fa.fa-image{
-        position: absolute;
-        font-size: 16px;
-        top: 35px;
-        right: 180px;
+        line-height: 50px;
+        height: 50px;
+        right: 35px;
+        cursor: pointer;
+        position: relative;
         }
     input{
+      cursor:pointer;
       margin-right: 40px;
       display: inline-block;
       width: 100px;
@@ -172,10 +174,15 @@ a{
 }
 .chat-group__link{
   height: 46px;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .chat-group__name{
   font-size: 15px;
   margin-bottom: 5px;
 }
+
+.chat_img{
+  width: 600px;
+}
+

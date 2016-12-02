@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-
+/public/uploads/
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -14,4 +14,5 @@
 !/tmp/.keep
 
 # Ignore Byebug command history file.
+.env
 .byebug_history
