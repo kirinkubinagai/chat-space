@@ -27,7 +27,7 @@ class ChatGroupsController < ApplicationController
 
   def update
     if @chat_group.update(chat_group_params)
-      redirect_to action: :index
+      redirect_to :index
     else
       render :edit
     end
