@@ -62,7 +62,7 @@ $(function() {
   return chat;
   }
 
-  $('#new_message').on('submit', function(e) {
+  $('#message_submit').on('click', function(e) {
     e.preventDefault();
     var form = $("#new_message").get()[0];
     var formData = new FormData(form);
@@ -78,6 +78,7 @@ $(function() {
       contentType: false
     })
     .done(function(data) {
+      console.log(buildHTML(data))
       $('.chat-body').append(buildHTML(data));
       $("#message_body").val("");
       return false;
