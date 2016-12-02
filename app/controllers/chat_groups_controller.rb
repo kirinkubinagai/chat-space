@@ -17,7 +17,7 @@ class ChatGroupsController < ApplicationController
       flash[:notice] = "グループを作成しました。"
     else
       flash.now[:alert] = "グループ名を入力してください"
-      render action: :new
+      render :new
     end
   end
 
@@ -30,7 +30,7 @@ class ChatGroupsController < ApplicationController
     if @chat_group.update(chat_group_params)
       redirect_to action: :index
     else
-      render action: :edit
+      render :edit
     end
   end
 

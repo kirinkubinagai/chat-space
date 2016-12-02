@@ -1,64 +1,50 @@
 $(function() {
   function buildHTML(data) {
+    var chat =
+    '<ul class="chat-message">' +
+      '<li class = "chat-message__header">' +
+        '<p class = "chat-message__name">' +
+          data.name +
+        '</p>' +
+        '<p class = "chat-message__time">' +
+          data.created_at +
+        '</p>' +
+      '</li>' +
+      '<li class = "chat-message__body">' +
+          data.body +
+      '</li>';
     if (data.image.image.url == null){
-      var chat =
-        '<ul class="chat-message">' +
-          '<li class = "chat-message__header">' +
-            '<p class = "chat-message__name">' +
-              data.name +
-            '</p>' +
-            '<p class = "chat-message__time">' +
-              data.created_at +
-            '</p>' +
-          '</li>' +
-          '<li class = "chat-message__body">' +
-              data.body +
-          '</li>' +
-        '</ul>';
-    }else if(data.body != "" && data.image.image.url != null){
-      var image_data = data.image.image.url
-      var alt_data = image_data.replace(/\.jpg/,"")
-      var new_alt_data = alt_data.replace(/_/g," ")
-      var new_alt_data = new_alt_data.replace(/\/uploads\//,"")
-      var chat =
-        '<ul class="chat-message">' +
-          '<li class = "chat-message__header">' +
-            '<p class = "chat-message__name">' +
-              data.name +
-            '</p>' +
-            '<p class = "chat-message__time">' +
-              data.created_at +
-            '</p>' +
-          '</li>' +
-          '<li class = "chat-message__body">' +
-              data.body +
-          '</li>' +
-          '<div class= "chat_message_image">' +
-            '<img src ="' + image_data + '"' + ' alt ="' + new_alt_data +'" class ="chat_img">'
-          '</div>' +
-        '</ul>';
-    }else if(data.body === "" && data.image.image.url != null) {
-      var image_data = data.image.image.url
-      var alt_data = image_data.replace(/\.jpg/,"")
-      var new_alt_data = alt_data.replace(/_/g," ")
-      var new_alt_data = new_alt_data.replace(/\/uploads\//,"")
-      var chat =
-        '<ul class="chat-message">' +
-          '<li class = "chat-message__header">' +
-            '<p class = "chat-message__name">' +
-              data.name +
-            '</p>' +
-            '<p class = "chat-message__time">' +
-              data.created_at +
-            '</p>' +
-          '</li>' +
-          '<div class= "chat_message_image">' +
-            '<br>' +
-            '<img src ="' + image_data + '"' + ' alt ="' + new_alt_data +'" class ="chat_img">'
-          '</div>' +
-        '</ul>';
+      var html = $(chat).append("</ul>");
     }
-  return chat;
+
+    else if(data.body != "" && data.image.image.url != null){
+      var image_data = data.image.image.url;
+      var alt_data = image_data.replace(/\.jpg/,"");
+      var new_alt_data = alt_data.replace(/_/g," ");
+      var new_alt_data = new_alt_data.replace(/\/uploads\//,"");
+      var images =
+      '<div class= "chat_message_image">' +
+            '<img src ="' + image_data + '"' + ' alt ="' + new_alt_data +'" class ="chat_img">'
+          '</div>' +
+        '</ul>';
+      var html = $(chat).append(images);
+    }
+
+    else if(data.body === "" && data.image.image.url != null) {
+      var image_data = data.image.image.url;
+      var alt_data = image_data.replace(/\.jpg/,"");
+      var new_alt_data = alt_data.replace(/_/g," ");
+      var new_alt_data = new_alt_data.replace(/\/uploads\//,"");
+      var images =
+          '<div class= "chat_message_image">' +
+            '<img src ="' + image_data + '"' + ' alt ="' + new_alt_data +'" class ="chat_img">'
+          '</div>' +
+        '</ul>';
+      var html = $(chat).append(images);
+    }
+
+  return html;
+
   }
 
   $('#message_submit').on('click', function(e) {
@@ -77,7 +63,6 @@ $(function() {
       contentType: false
     })
     .done(function(data) {
-      console.log(buildHTML(data))
       $('.chat-body').append(buildHTML(data));
       $("#message_body").val("");
       return false;
@@ -87,6 +72,4 @@ $(function() {
     });
   });
 });
-
-
 // 複数の画像を投稿した時の条件分岐ができてない
