@@ -14,11 +14,9 @@ $(function() {
           data.body +
       '</li>' +
     '</ul>'
-    if (data.image.image.url == null){
-      var html = $(chat).append("</ul>");
-    }
+    var html = chat;
 
-    else if(data.image.image.url != null){
+    if(data.image.image.url != null){
       var image_data = data.image.image.url;
       var alt_data = image_data.replace(/\.jpg/,"");
       var new_alt_data = alt_data.replace(/_/g," ");
@@ -28,7 +26,6 @@ $(function() {
             '<img src ="' + image_data + '"' + ' alt ="' + new_alt_data +'" class ="chat_img">'
           '</div>'
       var context = $(chat).find(".chat-message").append(images)
-          console.log($(chat).find(".chat-message"))
       var html = $(chat).append(images);
     }
 
@@ -61,3 +58,5 @@ $(function() {
   });
 });
 // 複数の画像を投稿した時の条件分岐ができてない
+
+setInterval
