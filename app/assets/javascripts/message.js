@@ -12,25 +12,13 @@ $(function() {
       '</li>' +
       '<li class = "chat-message__body">' +
           data.body +
-      '</li>';
+      '</li>' +
+    '</ul>'
     if (data.image.image.url == null){
       var html = $(chat).append("</ul>");
     }
 
-    else if(data.body != "" && data.image.image.url != null){
-      var image_data = data.image.image.url;
-      var alt_data = image_data.replace(/\.jpg/,"");
-      var new_alt_data = alt_data.replace(/_/g," ");
-      var new_alt_data = new_alt_data.replace(/\/uploads\//,"");
-      var images =
-      '<div class= "chat_message_image">' +
-            '<img src ="' + image_data + '"' + ' alt ="' + new_alt_data +'" class ="chat_img">'
-          '</div>' +
-        '</ul>';
-      var html = $(chat).append(images);
-    }
-
-    else if(data.body === "" && data.image.image.url != null) {
+    else if(data.image.image.url != null){
       var image_data = data.image.image.url;
       var alt_data = image_data.replace(/\.jpg/,"");
       var new_alt_data = alt_data.replace(/_/g," ");
@@ -38,13 +26,13 @@ $(function() {
       var images =
           '<div class= "chat_message_image">' +
             '<img src ="' + image_data + '"' + ' alt ="' + new_alt_data +'" class ="chat_img">'
-          '</div>' +
-        '</ul>';
+          '</div>'
+      var context = $(chat).find(".chat-message").append(images)
+          console.log($(chat).find(".chat-message"))
       var html = $(chat).append(images);
     }
 
   return html;
-
   }
 
   $('#message_submit').on('click', function(e) {
