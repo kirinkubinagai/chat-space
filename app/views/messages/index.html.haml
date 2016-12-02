@@ -32,8 +32,8 @@
             - @chat_group.users.each do |user|
               = user.name
       .chat-header__right
-        %a.chat-header__edit-btn(href = "")
-          Edit
+        = link_to  "Edit",edit_chat_group_path(@chat_group),class:"chat-header__edit-btn" 
+           
     .chat-body
       - @chat_group.messages.each do |message|
         %ul.chat-message
@@ -46,7 +46,9 @@
             = message.body
             - if message.image_url.present?
               .chat_message_image
-                = image_tag message.image
+                <br>
+                = image_tag message.image,class: "chat_img"
+
     .chat-footer
       .form.new-message
         .chat-footer-text
@@ -54,4 +56,4 @@
             =f.text_area :body,placeholder: "type a message",row: "1"
             %label.chat_image.fa.fa-image
               =f.file_field :image,style: "display: none;"
-            =f.submit value: "Send",class: "chat_submit"
+            =f.submit value: "Send",class: "chat_submit",id: "message_submit"
