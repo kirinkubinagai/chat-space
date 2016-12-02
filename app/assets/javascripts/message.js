@@ -34,7 +34,6 @@ $(function() {
               data.body +
           '</li>' +
           '<div class= "chat_message_image">' +
-            '<br>' +
             '<img src ="' + image_data + '"' + ' alt ="' + new_alt_data +'" class ="chat_img">'
           '</div>' +
         '</ul>';
