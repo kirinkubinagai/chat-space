@@ -36,7 +36,7 @@
            
     .chat-body
       - @chat_group.messages.each do |message|
-        %ul.chat-message
+        %ul.chat-message{id: message.id}
           %li.chat-message__header
             %p.chat-message__name
               = message.user.name
