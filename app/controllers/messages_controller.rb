@@ -6,10 +6,21 @@ class MessagesController < ApplicationController
     @message = Message.new
     @messages = @chat_group.messages
 
+    @datas=[]
+    @messages.each do |message|
+      data = {
+        name:                   User.find(message.user_id).name,
+        body:                   message.body,
+        created_at:             message.created_at,
+        image:                  message.image
+      }
+      @datas << data
+    end
+
     respond_to do |format|
       format.html
       format.json {
-        render json: @messages
+        render json: @datas
       }
     end
   end
