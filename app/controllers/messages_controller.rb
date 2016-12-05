@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       respond_to do |format|
-        format.html { redirect_to action: :index } # この中はHTMLリクエストの場合に呼ばれる
+        format.html {}
         format.json {
           render json: {
             id:                 @message.id,
@@ -30,8 +30,8 @@ class MessagesController < ApplicationController
         }# この中はJSONリクエストの場合に呼ばれる
       end
     else
-      redirect_to :new
-      flash.now[:alert] = "入力してください"
+      redirect_to chat_group_messages_path(params[:chat_group_id])
+      flash[:alert] = "入力してください"
     end
   end
 
