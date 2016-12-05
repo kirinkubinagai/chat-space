@@ -63,7 +63,7 @@ $(function() {
     }
 
     function getMessages(){
-      var href = window.location.href+".json";
+      var href = window.location.href
       $.ajax({
         type: "get",
         url: href,
@@ -81,9 +81,9 @@ $(function() {
 
 
   $(document).on("turbolinks:load",function(){
-
-    setInterval(getMessages,1000 * 10)
-
+    if ($("#new_message").length){
+      setInterval(getMessages,1000 * 10)
+    }
 
     $('#message_submit').on('click', function(e) {
       e.preventDefault();
@@ -91,10 +91,10 @@ $(function() {
       var formData = new FormData(form);
       var message = $("textarea").val();
       var new_url = $("#new_message").attr("action");
-      var new_url_for_json = new_url+".json";
+
       $.ajax({
         type: 'POST',
-        url: new_url_for_json,
+        url: new_url,
         data: formData,
         dataType: 'json',
         processData: false,
