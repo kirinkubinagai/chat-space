@@ -1,0 +1,22 @@
+.chat-side
+  .chat-user.clearfix
+    %h5
+      %b
+        =current_user.name
+    .chat-user__actions
+      =link_to new_chat_group_path,class: "chat-user__action" do
+        %i.fa.fa-pencil-square-o
+      =link_to edit_user_registration_path, class: "chat-user__action" do
+        %i.fa.fa-cog
+  %ul.chat-groups
+    %li.chat-group
+      - @chat_groups.each do |chat_group|
+        .chat-group__link
+          =link_to chat_group_messages_path(chat_group),class: "chat-group__name" do
+            =chat_group.name
+          .chat-group__message
+            - if chat_group.messages.present?
+              =chat_group.messages.first.body
+            - else
+              %p
+                まだメッセージはありません。

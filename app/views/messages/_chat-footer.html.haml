@@ -1,0 +1,8 @@
+.chat-footer
+  .form.new-message
+    .chat-footer-text
+      =form_for [@chat_group,@message],class:"chat_footer-text" do |f|
+        =f.text_area :body,placeholder: "type a message",row: "1"
+        %label.chat_image.fa.fa-image
+          =f.file_field :image,style: "display: none;"
+        =f.submit value: "Send",class: "chat_submit",id: "message_submit"

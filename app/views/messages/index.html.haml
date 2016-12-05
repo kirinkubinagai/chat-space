@@ -1,59 +1,6 @@
 .chat
-  .chat-side
-    .chat-user.clearfix
-      %h5
-        %b
-          =current_user.name
-      .chat-user__actions
-        =link_to new_chat_group_path,class: "chat-user__action" do
-          %i.fa.fa-pencil-square-o
-        = link_to edit_user_registration_path,class: "chat-user__action" do
-          %i.fa.fa-cog
-    %ul.chat-groups
-      %li.chat-group
-        - @chat_groups.each do |chat_group|
-          .chat-group__link
-            =link_to chat_group_messages_path(chat_group),class:"chat-group__name" do
-              =chat_group.name
-            .chat-group__message
-              - if chat_group.messages.present?
-                = chat_group.messages.first.body
-              - else
-                %p
-                  まだメッセージはありません。
+  = render "common/side"
   .chat-main
-    .chat-header.clearfix
-      .chat-header__left
-        %h2
-          = @chat_group.name
-        %p.chat-header__users
-          Members:
-          %span.chat-header__users
-            - @chat_group.users.each do |user|
-              = user.name
-      .chat-header__right
-        = link_to  "Edit",edit_chat_group_path(@chat_group),class:"chat-header__edit-btn" 
-           
-    .chat-body
-      - @chat_group.messages.each do |message|
-        %ul.chat-message{id: message.id}
-          %li.chat-message__header
-            %p.chat-message__name
-              = message.user.name
-            %p.chat-message__time
-              = message.created_at
-          %li.chat-message__body
-            = message.body
-            - if message.image_url.present?
-              .chat_message_image
-                <br>
-                = image_tag message.image,class: "chat_img"
-
-    .chat-footer
-      .form.new-message
-        .chat-footer-text
-          =form_for [@chat_group,@message],class:"chat_footer-text" do |f|
-            =f.text_area :body,placeholder: "type a message",row: "1"
-            %label.chat_image.fa.fa-image
-              =f.file_field :image,style: "display: none;"
-            =f.submit value: "Send",class: "chat_submit",id: "message_submit"
+    = render "chat-header"
+    = render "chat-body"
+    = render "chat-footer"
