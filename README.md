@@ -14,7 +14,7 @@
   |カラム名|型|オプション|  
   |:---:|:---:|:---:|  
   |name|string|not null,index|  
-  |e_mail|string|unique,index|  
+  |e_mail|string|unique|  
   |group_id|references|foreign_key|  
   |password|string|not null|  
   * has_many :users_groups  
