@@ -36,11 +36,11 @@ $(function(){
       $(".user_delete").on ("click",function(){
         var delete_name = $(this).parent();
         delete_name.remove();
-      })
+      });
       //削除を押して削除する
 
-    })
-  }
+    });
+  };
 
   $(document).on("turbolinks:load",function(){
 
@@ -56,6 +56,9 @@ $(function(){
       })
       .done(function(data){
         buildHTML(data);
+      })
+      .fail(function(){
+        alert('error');
       });
     });
   });
