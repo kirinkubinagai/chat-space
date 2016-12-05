@@ -31,10 +31,36 @@ $(function() {
       }
     return html;
     }
-  $(document).on("turbolinks:load",function(){
-    $(".chat-header__left").on("click",function(){
-      getMessages()
-    })
+
+    function createHTML(data){
+      html = ""
+      for (var i=0; i < data.length; i++) {
+         var chat =
+          '<ul class="chat-message">' +
+            '<li class = "chat-message__header">' +
+              '<p class = "chat-message__name">' +
+                data[i].name +
+              '</p>' +
+              '<p class = "chat-message__time">' +
+                data[i].created_at +
+              '</p>' +
+            '</li>' +
+            '<li class = "chat-message__body">' +
+                data[i].body +
+            '</li>';
+        if (data[i].image.image.url !== null){
+          var images =
+            '<div class= "chat_message_image">' +
+              '<br>' +
+              '<img src ="' + data[i].image.image.url + '" class ="chat_img">'
+            '</div>';
+          var chat = chat + images ;
+        };
+        var chat = chat + '</ul>';
+        var html = html + chat;
+      }
+      return html;
+    }
 
     function getMessages(){
       var href = window.location.href+".json";
@@ -45,12 +71,21 @@ $(function() {
       })
 
       .done(function(data){
+        var data = data.array
+        console.log(data[0])
         $('.chat-body').html(createHTML(data));
       })
       .fail(function(a_data){
         alert("error")
       })
     }
+
+
+  $(document).on("turbolinks:load",function(){
+    $(".chat-header__left").on("click",function(){
+      getMessages()
+    })
+
 
     setInterval(getMessages,1000 * 10)
 

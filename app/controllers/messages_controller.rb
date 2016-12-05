@@ -5,22 +5,10 @@ class MessagesController < ApplicationController
     @chat_group = ChatGroup.find(params[:chat_group_id])
     @message = Message.new
     @messages = @chat_group.messages
-
-    @datas=[]
-    @messages.each do |message|
-      data = {
-        name:                   User.find(message.user_id).name,
-        body:                   message.body,
-        created_at:             message.created_at,
-        image:                  message.image
-      }
-      @datas << data
-    end
-
     respond_to do |format|
       format.html
       format.json {
-        render json: @datas
+        render "index.json.jbuilder"
       }
     end
   end
