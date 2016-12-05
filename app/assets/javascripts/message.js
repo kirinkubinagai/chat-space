@@ -72,7 +72,6 @@ $(function() {
 
       .done(function(data){
         var data = data.array
-        console.log(data[0])
         $('.chat-body').html(createHTML(data));
       })
       .fail(function(a_data){
@@ -82,10 +81,6 @@ $(function() {
 
 
   $(document).on("turbolinks:load",function(){
-    $(".chat-header__left").on("click",function(){
-      getMessages()
-    })
-
 
     setInterval(getMessages,1000 * 10)
 
