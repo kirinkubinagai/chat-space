@@ -42,18 +42,21 @@ $(function(){
     })
   }
 
-  $("#user-search-field").on("keyup",function(e){
-    e.preventDefault();
-    var input = $("#user-search-field").val();
-    var params = {name: input};
-    $.ajax({
-      type: "get",
-      url: "/users/search",
-      data: params,
-      dataType: "json"
-    })
-    .done(function(data){
-      buildHTML(data);
+  $(document).on("turbolinks:load",function(){
+
+    $("#user-search-field").on("keyup",function(e){
+      e.preventDefault();
+      var input = $("#user-search-field").val();
+      var params = {name: input};
+      $.ajax({
+        type: "get",
+        url: "/users/search",
+        data: params,
+        dataType: "json"
+      })
+      .done(function(data){
+        buildHTML(data);
+      });
     });
   });
 });

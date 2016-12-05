@@ -4,6 +4,13 @@ class MessagesController < ApplicationController
     @chat_groups = current_user.chat_groups.order("created_at DESC")
     @chat_group = ChatGroup.find(params[:chat_group_id])
     @message = Message.new
+    @messages = @chat_group.messages
+    respond_to do |format|
+      format.html
+      format.json {
+        render "index.json.jbuilder"
+      }
+    end
   end
 
   def create
@@ -14,7 +21,6 @@ class MessagesController < ApplicationController
         format.json {
           render json: {
             id:                 @message.id,
-            chat_group_id:      @message.chat_group_id,
             body:               @message.body,
             created_at:         @message.created_at,
             user_id:            @message.user_id,
