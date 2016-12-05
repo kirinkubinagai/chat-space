@@ -17,7 +17,7 @@
       #chat-group-users-added
         %div(class= "chat-group-user clearfix" i d= "chat-group-user-#{user.id}")
           = user.name
-          = hidden_field_tag "chat_group[user_ids][]", current_user.id
+          = hidden_field_tag "chat_group[user_ids][]", user.id
   .chat-group-form__field.clearfix
     .chat-group-form__field--right
       = f.submit "Save", class: "chat-group-form__action-btn"
