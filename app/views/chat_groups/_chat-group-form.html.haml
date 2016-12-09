@@ -15,7 +15,7 @@
       = f.label :チャットメンバー, class: "chat-group-form__label"
     .chat-group-form__field--right
       #chat-group-users-added
-        %div(class= "chat-group-user clearfix" i d= "chat-group-user-#{user.id}")
+        %div(class= "chat-group-user clearfix" id= "chat-group-user-#{user.id}")
           = user.name
           = hidden_field_tag "chat_group[user_ids][]", user.id
   .chat-group-form__field.clearfix

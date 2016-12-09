@@ -75,9 +75,9 @@ $(function() {
       $('.chat-body').html(createHTML(data));
     })
     .fail(function(data){
-      alert("error")
-    })
-  }
+      alert("error");
+    });
+  };
 
   $(document).on("turbolinks:load",function(){
     if ($("#new_message").length){
@@ -88,7 +88,6 @@ $(function() {
       e.preventDefault();
       var form = $("#new_message").get()[0];
       var formData = new FormData(form);
-      var message = $("textarea").val();
       var new_url = $("#new_message").attr("action");
 
       $.ajax({
@@ -99,12 +98,12 @@ $(function() {
         processData: false,
         contentType: false
       })
-      .done(function(data) {
+      .done(function(data){
         $('.chat-body').append(buildHTML(data));
         $("#message_body").val("");
         return false;
       })
-      .fail(function() {
+      .fail(function(){
         alert('error');
       });
     });

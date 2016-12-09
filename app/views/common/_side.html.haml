@@ -16,7 +16,7 @@
             =chat_group.name
           .chat-group__message
             - if chat_group.messages.present?
-              =chat_group.messages.first.body
+              = chat_group.messages.first.body
             - else
               %p
                 まだメッセージはありません。
