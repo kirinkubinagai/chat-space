@@ -11,7 +11,7 @@ set :repo_url, 'https://github.com/kirinkubinagai/chat-space.git'
 set :branch, 'master'
 
 # deploy先のディレクトリに変更してください
-set :deploy_to, '/var/www/chat-space/'
+set :deploy_to, '/var/www/52.193.80.111/'
 
 # シンボリックリンクをはるファイル。(※後述)
 set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
