@@ -88,7 +88,6 @@ $(function() {
       e.preventDefault();
       var form = $("#new_message").get()[0];
       var formData = new FormData(form);
-      var message = $("textarea").val();
       var new_url = $("#new_message").attr("action");
 
       $.ajax({
